@@ -1,15 +1,19 @@
-#### React Router Fix
-
-(Fix)[https://dev.to/dance2die/page-not-found-on-netlify-with-react-router-58mc]
-
-#### CRA Fix
-
-```
-
-"build": "CI= react-scripts build",
-
-```
-
-```sh
-npm install react-router-dom@6
+<div align="center">
+<h1>React Cocktail App Frontend</h1>
+   <div align="center">
+    <img src="preview1.png" width='700'/>
+    <br/>
+    <hr />
+    <br />
+    <img src="preview2.png" width='700'/>
+    <br/>
+    <hr />
+    <br />
+    <img src="preview3.png" width='700'/>
+    <br/>
+    <hr />
+    <br />
+    <img src="preview4.png" width='700'/>
+  </div>
+</div>
 ```
