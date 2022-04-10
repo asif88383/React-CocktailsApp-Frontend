@@ -1,3 +1,9 @@
+<h2>Checkout the app here</h2>
+https://allcocktaildb.netlify.app/
+<br/>
+<hr />
+<br />
+    
 <div align="center">
 <h1>React Cocktail App Frontend</h1>
    <div align="center">
@@ -18,5 +24,4 @@
 </div>
 
 
-###Checkout the app here
-https://allcocktaildb.netlify.app/
+
