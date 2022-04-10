@@ -2,10 +2,8 @@ import React from 'react'
 import Loading from '../components/Loading'
 import { useParams, Link } from 'react-router-dom'
 
-const url = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i='
-
-export default function SingleCocktail(){
-  const {id} = useParams()
+export default function SingleCocktail() {
+  const { id } = useParams()
   const [loading, setLoading] = React.useState(false)
   const [cocktail, setCocktail] = React.useState(null)
 
@@ -13,9 +11,11 @@ export default function SingleCocktail(){
     setLoading(true)
     async function getCocktail() {
       try {
-        const response = await fetch(`${url}${id}`)
+        const response = await fetch(
+          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+        )
         const data = await response.json()
-        if(data.drinks){
+        if (data.drinks) {
           const {
             strDrink: name,
             strDrinkThumb: image,
@@ -46,7 +46,7 @@ export default function SingleCocktail(){
             ingredients,
           }
           setCocktail(newCocktail)
-        }else{
+        } else {
           setCocktail(null)
         }
       } catch (error) {
@@ -56,12 +56,12 @@ export default function SingleCocktail(){
     }
     getCocktail()
   }, [id])
-  if(loading){
+  if (loading) {
     return <Loading/>
   }
-  if(!cocktail){
-    return <h2 className='section-title'>Cocktail not found</h2>
-  }else{
+  if (!cocktail) {
+    return <h2 className='section-title'>no cocktail to display</h2>
+  } else {
     const {
       name,
       image,
@@ -78,27 +78,27 @@ export default function SingleCocktail(){
         </Link>
         <h2 className='section-title'>{name}</h2>
         <div className='drink'>
-          <img src={image} alt={name}/>
+          <img src={image} alt={name}></img>
           <div className='drink-info'>
             <p>
-              <span className='drink-data'>name:</span> {name}
+              <span className='drink-data'>name :</span> {name}
             </p>
             <p>
-              <span className='drink-data'>category:</span> {category}
+              <span className='drink-data'>category :</span> {category}
             </p>
             <p>
-              <span className='drink-data'>info:</span> {info}
+              <span className='drink-data'>info :</span> {info}
             </p>
             <p>
-              <span className='drink-data'>glass:</span> {glass}
+              <span className='drink-data'>glass :</span> {glass}
             </p>
             <p>
-              <span className='drink-data'>instructions:</span> {instructions}
+              <span className='drink-data'>instructons :</span> {instructions}
             </p>
             <p>
-              <span className='drink-data'>ingredients:</span>
-              {ingredients.map((ingredient, index) => {
-                return ingredient? <span key={index}>{ingredient}</span> : null
+              <span className='drink-data'>ingredients :</span>
+              {ingredients.map((item, index) => {
+                return item ? <span key={index}> {item}</span> : null
               })}
             </p>
           </div>
@@ -107,5 +107,3 @@ export default function SingleCocktail(){
     )
   }
 }
-
-
