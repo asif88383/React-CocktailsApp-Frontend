@@ -61,15 +61,51 @@ export default function SingleCocktail(){
   }
   if(!cocktail){
     return <h2 className='section-title'>Cocktail not found</h2>
+  }else{
+    const {
+      name,
+      image,
+      category,
+      info,
+      glass,
+      instructions,
+      ingredients,
+    } = cocktail
+    return (
+      <section className='section cocktail-section'>
+        <Link to='/' className='btn btn-primary'>
+          back home
+        </Link>
+        <h2 className='section-title'>{name}</h2>
+        <div className='drink'>
+          <img src={image} alt={name}/>
+          <div className='drink-info'>
+            <p>
+              <strong className='drink-data'>name:</strong> {name}
+            </p>
+            <p>
+              <strong className='drink-data'>category:</strong> {category}
+            </p>
+            <p>
+              <strong className='drink-data'>info:</strong> {info}
+            </p>
+            <p>
+              <strong className='drink-data'>glass:</strong> {glass}
+            </p>
+            <p>
+              <strong className='drink-data'>instructions:</strong> {instructions}
+            </p>
+            <p>
+              <strong className='drink-data'>ingredients:</strong>
+              {ingredients.map((ingredient, index) => {
+                return ingredient? <span key={index}>{ingredient}</span> : null
+              })}
+            </p>
+          </div>
+        </div>
+      </section>
+    )
   }
 }
 
-
-const SingleCocktail = () => {
-  return (
-    <div>
-      <h2>single cocktail page </h2>
-    </div>
-  )
-}
 
